@@ -10,6 +10,53 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+# Path to DOTFILES
+export DOT="$HOME/.dotfiles"
+
+# Project folder that we can `c [Tab]` to
+export PROJECTS="$HOME/Code"
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]] then
+	source ~/.localrc
+fi
+
+# all of our zsh files
+typeset -U config_files
+config_files=($DOT/**/*.zsh)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+	source $file
+done
+
+# Load the nvim if its installed without sudo support
+if [ -d $HOME/.programs/nvim-linux64 ]
+then
+  export PATH="$HOME/.programs/nvim-linux64/bin:$PATH"
+fi
+
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+	source $file
+done
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}
+do
+	source $file
+done
+
+unset config_files
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
