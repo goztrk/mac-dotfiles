@@ -117,7 +117,7 @@ unset config_files
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(alias-tips)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -158,3 +158,4 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
