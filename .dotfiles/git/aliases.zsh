@@ -5,6 +5,7 @@ alias ga='git add'
 
 alias gst='git status'
 alias gsb='git status -sb'
+alias gdsf='git dsf'
 
 alias gb='git branch'
 alias gbd='git branch -d'
@@ -12,6 +13,7 @@ alias gbD='git branch -D'
 
 alias gc='git commit -v'
 alias gca='git commit -va'
+alias gcam='git commit --amend'
 
 alias gco='git checkout'
 alias gcom='git checkout master'
@@ -21,7 +23,7 @@ alias gpu='git push'
 alias gpl='git pull'
 alias gpuuo='git push --set-upstream origin $(git_current_branch)'
 
-alias gl='git log'
+alias glog='git log'
 alias glo='git log --oneline'
 alias glg='git log --graph --oneline'
 
