@@ -1,0 +1,13 @@
+[user]
+	name = goztrk
+	email = me@gokhan.org.tr
+[init]
+	defaultBranch = master
+
+[pull]
+        rebase = true
+[core]
+	editor = emacs
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+	diffFilter = diff-so-fancy --patch
